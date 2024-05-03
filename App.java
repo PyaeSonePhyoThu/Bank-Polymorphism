@@ -7,14 +7,23 @@ public class App
 
         for(int i = 0; i < account.length; i++)
         {
+            System.out.println();
             System.out.println(account[i].getClass().getName());
             account[i].createAccount();
             System.out.println();
-            account[i].deposit(500000);
-            account[i].displayInformation(account[i].getAccountId());
         }
 
-        account[0].withdraw(50000);
+        //Displaying Account Information
+        for(int i = 0; i < account.length; i++)
+        {
+            account[i].displayInformation(account[i].getAccountId());
+            System.out.println();
+        }
+        
+        account[0].withdraw(5000000);
+        System.out.println();
+        account[0].deposit(5000);
+        account[0].displayInformation(account[0].getAccountId());
         account[1].withdraw(500000);
 
 

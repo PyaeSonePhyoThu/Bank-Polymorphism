@@ -13,15 +13,12 @@ public class SavingsAccount extends Account{
         accountholder = scanner.nextLine();
         System.out.print("Enter Initial Balance : ");
         balance = scanner.nextDouble();
-        scanner.nextLine();
-        System.out.print("Enter Account Type : ");
-        accounttype = scanner.nextLine();
         System.out.print("Enter Interest Rate : ");
         interestrate = scanner.nextDouble();
         System.out.print("Enter Duration : ");
         duration = scanner.nextInt();
-
-        //scanner.close();
+        setOverdraftlimit(5000000);
+        displayOverdraftLimit();
     }
 
     @Override
@@ -31,17 +28,29 @@ public class SavingsAccount extends Account{
 
     @Override
     public void withdraw(double amount) {
+        if(amount >= overdraftlimit)
+        {
+            System.out.println("Can't withdraw " + amount + " due to overdraftlimit.");           
+            displayOverdraftLimit();
+            return;
+        } 
         super.withdraw(amount);
     }
 
     @Override
     public void displayInformation(String accountid) {
         super.displayInformation(getAccountId());
+        displayOverdraftLimit();
     }
 
     public double calculateInterest()
     {
         return interestrate;
+    }
+
+    @Override
+    public void displayOverdraftLimit() {
+        System.out.println("Overdraft limit for Saving Account : " + overdraftlimit);
     }
 
 }

@@ -3,6 +3,7 @@ public abstract class Account {
     String accountholder;
     double balance;
     String accounttype;
+    double overdraftlimit;
 
     public Account(String accountId, String accountholder, double balance, String accounttype)
     {
@@ -21,32 +22,44 @@ public abstract class Account {
 
     public void deposit(double amount)
     {
-        if(amount < 5000)
+        System.out.println();
+        System.out.println("Account ID : " + getAccountId());
+        if(amount <= 5000)
         {
             System.out.println("Deposit atleast 100000");
+            System.out.println("-------------------------------------------------");
             return;
         }
         balance += amount;
+        System.out.println("Deposited : " + amount + " to Account ID" + getAccountId());
+        System.out.println("Current Balance of "+ getAccountId()+ " : " + balance);
+        System.out.println("-------------------------------------------------");
     }
 
     public void withdraw(double amount)
-    {
+    {   
+        System.out.println();
+        System.out.println("Account ID : " + getAccountId());
+        System.out.println("Withdrawing --------");
         if(amount >= balance)
         {
-            System.out.println("Can't withdraw more than " + amount);
+            System.out.println("Invalid Withdraw Amount");
         }
         else
         {
             balance -= amount;
+            System.out.println("Withdraw :" + amount);
+            System.out.println("Current Balance of "+ getAccountId()+ " : " + balance);
         }
+        System.out.println("-------------------------------------------------");
     }
 
     public void displayInformation(String accountid)
     {
+        System.out.println("Account Type : " + getClass().getName());
         System.out.println("Account ID : " + getAccountId());
         System.out.println("Account Holder Name : " + getAccountholder());
         System.out.println("Balance : " + getBalance());
-        System.out.println("Account Type : " + getAccounttype());
     }
 
     public String getAccountId() {
@@ -79,6 +92,16 @@ public abstract class Account {
 
     public void setAccounttype(String accounttype) {
         this.accounttype = accounttype;
+    }
+
+    public abstract void displayOverdraftLimit();
+
+    public double getOverdraftlimit() {
+        return overdraftlimit;
+    }
+
+    public void setOverdraftlimit(double overdraftlimit) {
+        this.overdraftlimit = overdraftlimit;
     }
 
 }

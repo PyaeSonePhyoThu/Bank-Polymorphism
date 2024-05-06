@@ -43,6 +43,4 @@ public class CurrentAccount extends Account{
         System.out.println("Overdraft limit for Current Account " + getOverdraftlimit());
     }
     
-    
-
 }

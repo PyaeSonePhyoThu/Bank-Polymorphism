@@ -28,7 +28,7 @@ public class SavingsAccount extends Account{
 
     @Override
     public void withdraw(double amount) {
-        if(amount >= overdraftlimit)
+        if(amount >= getOverdraftlimit())
         {
             System.out.println("Can't withdraw " + amount + " due to overdraftlimit.");           
             displayOverdraftLimit();
@@ -50,7 +50,7 @@ public class SavingsAccount extends Account{
 
     @Override
     public void displayOverdraftLimit() {
-        System.out.println("Overdraft limit for Saving Account : " + overdraftlimit);
+        System.out.println("Overdraft limit for Saving Account : " + getOverdraftlimit());
     }
 
 }

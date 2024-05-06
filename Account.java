@@ -1,9 +1,9 @@
 public abstract class Account {
-    String accountId;
-    String accountholder;
-    double balance;
-    String accounttype;
-    double overdraftlimit;
+    protected String accountId;
+    protected String accountholder;
+    protected double balance;
+    protected String accounttype;
+    protected double overdraftlimit;
 
     public Account(String accountId, String accountholder, double balance, String accounttype)
     {

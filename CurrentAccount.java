@@ -22,7 +22,7 @@ public class CurrentAccount extends Account{
 
     @Override
     public void withdraw(double amount) {
-        if(amount >= overdraftlimit)
+        if(amount >= getOverdraftlimit())
         {
             System.out.println("Can't withdraw " + amount + " due to overdraftlimit.");
             displayOverdraftLimit();
@@ -34,13 +34,13 @@ public class CurrentAccount extends Account{
     @Override
     public void displayInformation(String accountid) {
         super.displayInformation(getAccountId());
-        System.out.println("Overdraft limit : " + overdraftlimit);
+        displayOverdraftLimit();
     }
 
     @Override
     public void displayOverdraftLimit()
     {
-        System.out.println("Overdraft limit for Current Account " + overdraftlimit);
+        System.out.println("Overdraft limit for Current Account " + getOverdraftlimit());
     }
     
     

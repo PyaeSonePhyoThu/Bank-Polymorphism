@@ -5,19 +5,6 @@ public abstract class Account {
     protected String accounttype;
     protected double overdraftlimit;
 
-    public Account(String accountId, String accountholder, double balance, String accounttype)
-    {
-        this.accountId = accountId;
-        this.accountholder = accountholder;
-        this.accounttype = accounttype;
-        this.balance = balance;
-    }
-
-    public Account()
-    {
-
-    }
-
     public abstract void createAccount();
 
     public void deposit(double amount)
